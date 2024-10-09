@@ -52,10 +52,10 @@ const deleteUser = async (req, res) => {
 
 const EditUser = async (req, res) => {
     const { id } = req.params;
-    const { Name, Password, email } = req.body; // Match the fields from the request
+    const { Coins } = req.body; // Match the fields from the request
 
     try {
-        const updatedUser = await User.findByIdAndUpdate(id, { Name, Password, email }, { new: true });
+        const updatedUser = await User.findByIdAndUpdate(id, { Coins }, { new: true });
         if (!updatedUser) {
             return res.status(404).json({ message: 'User not found' });
         }
